@@ -1,0 +1,32 @@
+package practiceSelenium;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class HiddenDivisionPopups {
+	public static void main(String[] args) {
+		WebDriverManager.chromiumdriver().setup();
+		WebDriver driver=new ChromeDriver();
+		
+		driver.manage().window().maximize();
+		
+		driver.manage().timeouts().implicitlyWait(Duration.ofMillis(2000));
+		
+		driver.get("https://www.goibibo.com/");
+		
+		driver.findElement(By.xpath("//span[.='Departure']")).click();
+		
+		String month = "March 2023";
+		String date = "15";
+		
+		driver.findElement(null);
+		
+		
+	}
+
+}

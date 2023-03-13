@@ -1,0 +1,13 @@
+package practice;
+
+public class ResverseString {
+	
+	public static void main(String[] args) {
+		String s="Utsab";
+		
+		for(int i=s.length()-1;i>=0;i--) {
+			System.out.print(s.charAt(i));
+		}
+	}
+
+}

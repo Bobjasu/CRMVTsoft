@@ -1,0 +1,44 @@
+package practiceSelenium;
+
+import java.time.Duration;
+import java.util.Set;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ChildBrowserPopups {public static void main(String[] args) {
+	WebDriverManager.chromiumdriver().setup();
+	WebDriver driver=new ChromeDriver();
+	
+	driver.manage().window().maximize();
+	
+	driver.manage().timeouts().implicitlyWait(Duration.ofMillis(2000));
+	
+	driver.get("https://www.naukri.com/");
+	
+	 String parent_id = driver.getWindowHandle();
+	 
+	 System.out.println(parent_id);
+	 
+	 Set<String> all_id = driver.getWindowHandles();
+	 int count = all_id.size();
+	 
+	 System.out.println(count);
+	 
+	 for(String a: all_id)
+	 {
+		 driver.switchTo().window(a);
+		 String title = driver.getTitle(); 
+		 System.out.println(title);
+	  }
+	 
+	 driver.close();
+	
+    }
+
+}
+
+
+
